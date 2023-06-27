@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Company Website</title>
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="chatbot" class="chatbot">
+    <div class="chat-container">
+      <div id="chatlog" class="chatlog">
+        <div class="chat-message bot">
+          <p>Welcome to our Company! How can I assist you today?</p>
+        </div>
+      </div>
+      <div class="user-input">
+        <input type="text" id="userInput" placeholder="Type your message here..." />
+        <button id="sendButton">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const chatlog = document.getElementById('chatlog');
+    const userInput = document.getElementById('userInput');
+    const sendButton = document.getElementById('sendButton');
+
+    // Function to handle user messages
+    function handleUserMessage() {
+      const message = userInput.value;
+      displayUserMessage(message);
+      processMessage(message);
+      userInput.value = '';
+    }
+
+    // Function to display user message in the chat log
+    function displayUserMessage(message) {
+      const chatMessage = document.createElement('div');
+      chatMessage.classList.add('chat-message', 'user');
+      chatMessage.innerHTML = `<p>${message}</p>`;
+      chatlog.appendChild(chatMessage);
+    }
+
+    // Function to display bot message in the chat log
+    function displayBotMessage(message) {
+      const chatMessage = document.createElement('div');
+      chatMessage.classList.add('chat-message', 'bot');
+      chatMessage.innerHTML = `<p>${message}</p>`;
+      chatlog.appendChild(chatMessage);
+    }
+
+    // Function to process user message and generate bot response
+function processMessage(message) {
+  // Check for different department requests and redirect accordingly
+  if (message.toLowerCase().includes('it')) {
+    displayBotMessage("Sure, let me redirect you to the IT department...");
+    setTimeout(() => {
+      window.location.href = "it.html";
+    }, 1000);
+  } else if (message.toLowerCase().includes('sales')) {
+    displayBotMessage("Alright, let me redirect you to the Sales department...");
+    setTimeout(() => {
+      window.location.href = "sales.html";
+    }, 1000);
+  } else if (message.toLowerCase().includes('marketing')) {
+    displayBotMessage("Okay, let me redirect you to the Marketing department...");
+    setTimeout(() => {
+      window.location.href = "marketing.html";
+    }, 1000);
+  } else if (message.toLowerCase().includes('hr')) {
+    displayBotMessage("Sure, let me redirect you to the HR department...");
+    setTimeout(() => {
+      window.location.href = "hr.html";
+    }, 1000);
+  } else {
+    displayBotMessage("I'm sorry, I couldn't understand your request. Please try again or contact our support team.");
+  }
+}
+
+
+    // Event listener for send button click
+    sendButton.addEventListener('click', handleUserMessage);
+
+    // Event listener for enter key press in the input field
+    userInput.addEventListener('keypress', function (event) {
+      if (event.key === 'Enter') {
+        handleUserMessage();
+      }
+    });
+  </script>
+</body>
+</html>
