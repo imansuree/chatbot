@@ -3,7 +3,7 @@ const userInput = document.getElementById('userInput');
 const sendButton = document.getElementById('sendButton');
 
 // Define your OpenAI API key
-const apiKey = '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';
+const apiKey = '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';
 
 // Function to handle user messages
 async function handleUserMessage() {
