@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Company Website</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Welcome to the IT Department</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="it.html">IT Department</a></li>
+      <li><a href="sales.html">Sales Department</a></li>
+      <li><a href="marketing.html">Marketing Department</a></li>
+      <li><a href="hr.html">HR Department</a></li>
+    </ul>
+  </nav>
+
+  <div id="chatbot" class="chatbot">
+    <div class="chat-container">
+      <div id="chatlog" class="chatlog">
+        <div class="chat-message bot">
+          <p>Welcome to the chatbot! How can I assist you today?</p>
+        </div>
+      </div>
+      <div class="user-input">
+        <input type="text" id="userInput" placeholder="Type your message here..." />
+        <button id="sendButton">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="chatbot.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const chatbot = document.getElementById('chatbot');
+      chatbot.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
